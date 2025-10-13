@@ -67,6 +67,8 @@ Tenemos que crear un fichero ".env" con el contenido del token de GROQ (sustituy
 GROQ_API_KEY=XXXXX
 ```
 
+**Si el modelo que se desea utilizar ya no está en Groq, cámbialo por algún modelo que sí esté disponible**
+
 Ejecutamos la aplicación:
 ```
 py app.py
