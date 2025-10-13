@@ -60,7 +60,7 @@ def recommend():
                     "content": prompt
                 }
             ],
-            model="mistral-saba-24b",
+            model="qwen/qwen3-32b",
             temperature=0.7,
             max_tokens=1000,
         )

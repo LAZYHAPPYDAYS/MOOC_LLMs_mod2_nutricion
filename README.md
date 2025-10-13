@@ -67,14 +67,34 @@ Tenemos que crear un fichero ".env" con el contenido del token de GROQ (sustituy
 GROQ_API_KEY=XXXXX
 ```
 
-**Si el modelo que se desea utilizar ya no está en Groq, cámbialo por algún modelo que sí esté disponible**
 
 Ejecutamos la aplicación:
 ```
-py app.py
+[LINUX/MAC] > python3 app.py
+[WINDOWS] > py.exe app.py
 ```
 
 Abra un navegador y vaya a la url "http://localhost:5000" para ver la aplicación.
 
+**Si el modelo que se desea utilizar ya no está en Groq (deprecated), cámbialo por algún modelo que sí esté disponible:**
 
+![Error al cargar la imagen](imgs/deprecated.png)
+
+```
+        completion = client.chat.completions.create(
+            messages=[
+                {
+                    "role": "user",
+                    "content": prompt
+                }
+            ],
+            model="mistral-saba-24b", # modelo a utilizar
+            temperature=0.7,
+            max_tokens=1000,
+        )
+```
+
+La lista de modelos disponibles puede consultarse en el Playground de grok:
+
+![Error al cargar la imagen](imgs/playground.png)
 
