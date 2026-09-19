@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Sistema de Recomendación de Libros</title>
+    <title>Asesor Nutricional Personal</title>
     <style>
         body {
             font-family: 'Arial', sans-serif;
@@ -89,42 +89,44 @@
 </head>
 <body>
     <div class="container">
-        <h1>Sistema de Recomendación de Libros</h1>
+        <h1>Asesor Nutricional Personal</h1>
         <form id="recommendationForm">
+
             <div class="form-group">
-                <label for="genre">Género Literario:</label>
-                <select id="genre" name="genre" required>
-                    <option value="">Selecciona un género</option>
-                    {% for genre in genres %}
-                    <option value="{{ genre }}">{{ genre }}</option>
+                <label for="edad">Edad:</label>
+                <select id="edad" name="edad" required>
+                    <option value="">Selecciona tu edad</option>
+                    {% for n in range(15,100) %}
+                    <option value="{{ n }}">{{ n }}</option>
                     {% endfor %}
                 </select>
             </div>
 
             <div class="form-group">
-                <label for="author">Autor Favorito:</label>
-                <textarea id="author" name="author" placeholder="Ingresa un autor que te guste leer..." required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="recent_books">Libros Leídos Recientemente:</label>
-                <textarea id="recent_books" name="recent_books" placeholder="Ingresa algunos libros que hayas leído recientemente..." required></textarea>
-            </div>
-
-            <div class="form-group">
-                <label for="reading_level">Nivel de Lectura:</label>
-                <select id="reading_level" name="reading_level" required>
-                    <option value="">Selecciona el nivel de lectura</option>
-                    <option value="Beginner">Principiante</option>
-                    <option value="Intermediate">Intermedio</option>
-                    <option value="Advanced">Avanzado</option>
+                <label for="nivel_actividad">Nivel de Actividad:</label>
+                <select id="nivel_actividad" name="nivel_actividad" required>
+                    <option value="">Selecciona nivel de actividad</option>
+                    {% for nivel_actividad in niveles_actividad %}
+                    <option value="{{ nivel_actividad }}">{{ nivel_actividad }}</option>
+                    {% endfor %}
                 </select>
             </div>
 
-            <button type="submit">Obtener Recomendación</button>
+
+            <div class="form-group">
+                <label for="comidas_favoritas">Comidas Favoritas:</label>
+                <textarea id="comidas_favoritas" name="comidas_favoritas" placeholder="Ingresa comidas que te gusten..." required></textarea>
+            </div>
+
+	    <div class="form-group">
+                <label for="restricciones">Restricciones Dietéticas o Alergias (Opcional)</label>
+                <textarea id="restricciones" name="restricciones" placeholder="Intolerancia a la lactosa, al gluten..." ></textarea>
+            </div>
+
+            <button type="submit">Generar Plan Nutricional</button>
         </form>
 
-        <div class="loading">Obteniendo tu recomendación personalizada...</div>
+        <div class="loading">Obteniendo tu plan nutricional personalizada...</div>
         <div id="recommendation"></div>
     </div>
 
